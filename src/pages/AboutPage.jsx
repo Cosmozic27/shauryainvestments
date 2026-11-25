@@ -271,6 +271,8 @@ export default function AboutPage() {
         title="Schedule a Personal Consultation With Santosh D. Chavan"
         subtitle="Visit our office at Kurar Village, Shivaji Nagar, Malad East, Mumbai to review your borrowing eligibility or establish a disciplined investment roadmap."
         variant="navy"
+        whatsAppType="general"
+        whatsAppLabel="Chat With Us on WhatsApp"
       />
 
     </div>

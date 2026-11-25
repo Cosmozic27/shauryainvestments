@@ -177,6 +177,8 @@ export default function ServicesPage() {
         title="Discuss Your Financial Requirements"
         subtitle="Schedule an in-person appointment at our Malad East office with Santosh D. Chavan for thorough, confidential guidance across loans, investments, and insurance."
         variant="navy"
+        whatsAppType="general"
+        whatsAppLabel="Enquire on WhatsApp"
       />
 
     </div>

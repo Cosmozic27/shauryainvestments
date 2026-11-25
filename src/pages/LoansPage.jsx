@@ -10,10 +10,13 @@ import {
   Layers, 
   Clock, 
   ShieldCheck, 
-  ArrowRight 
+  ArrowRight,
+  Calculator
 } from 'lucide-react';
 import PageHeader from '../components/common/PageHeader';
 import ContactCTA from '../components/common/ContactCTA';
+import EmiCalculator from '../components/calculators/EmiCalculator';
+import WhatsAppButton from '../components/common/WhatsAppButton';
 
 export default function LoansPage() {
   const loanTypes = [
@@ -207,12 +210,49 @@ export default function LoansPage() {
                       </div>
                     ))}
                   </div>
+
+                  {/* Service Specific Actions */}
+                  <div className="mt-6 pt-4 border-t border-stone/40 flex flex-wrap items-center justify-between gap-4">
+                    <a 
+                      href="#emi-calculator" 
+                      className="text-xs font-semibold text-gold hover:text-gold-dark inline-flex items-center gap-1.5 focus:outline-none"
+                    >
+                      <Calculator className="w-4 h-4" />
+                      <span>Estimate {loan.title} EMI Below</span>
+                    </a>
+                    
+                    <WhatsAppButton
+                      type={loan.id === 'home-loans' ? 'homeLoans' : loan.id === 'personal-loans' ? 'personalLoans' : 'businessLoans'}
+                      variant="whatsapp"
+                      size="sm"
+                      label={`Enquire for ${loan.title}`}
+                    />
+                  </div>
                 </div>
 
               </div>
             );
           })}
 
+        </div>
+      </section>
+
+      {/* Interactive EMI Calculator Section */}
+      <section id="emi-calculator" className="py-20 md:py-28 bg-sand border-b border-stone scroll-mt-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="text-xs uppercase tracking-widest font-semibold text-gold block mb-2">
+              Borrowing Assessment
+            </span>
+            <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-brand-primary tracking-tight">
+              Plan Your Monthly Outflow Before Applying
+            </h2>
+            <p className="mt-4 text-base text-brand-secondary">
+              Simulate your monthly installment, principal allocation, and interest liability with our reducing-balance EMI calculator.
+            </p>
+          </div>
+
+          <EmiCalculator />
         </div>
       </section>
 

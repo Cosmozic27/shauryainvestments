@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MapPin, Award, Shield, ArrowUp, ArrowUpRight } from 'lucide-react';
+import { MapPin, Award, Shield, ArrowUp, ArrowUpRight, Phone, Mail } from 'lucide-react';
 import Logo from '../common/Logo';
+import WhatsAppButton from '../common/WhatsAppButton';
 import { companyData } from '../../data/companyData';
 import { servicesData } from '../../data/servicesData';
 
@@ -13,28 +14,28 @@ export default function Footer() {
   };
 
   return (
-    <footer id="footer" className="bg-navy-950 text-white pt-20 pb-12 border-t border-gold/30 scroll-mt-24">
+    <footer id="footer" className="bg-navy-950 text-white pt-20 pb-12 border-t border-gold/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main 4-Column Footer Architecture */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-14 border-b border-white/10">
           
-          {/* Column 1: Brand & Legacy (5 cols on lg) */}
-          <div className="lg:col-span-5 space-y-6">
+          {/* Column 1: Brand & Legacy (4 cols on lg) */}
+          <div className="lg:col-span-4 space-y-6">
             <Logo variant="dark" size="normal" showTagline={true} />
             
-            <p className="text-gray-300 text-sm leading-relaxed max-w-md font-light">
+            <p className="text-gray-300 text-sm leading-relaxed max-w-sm font-light">
               Shaurya Investments is an independent financial consultancy led by Santosh D. Chavan. For 25 years, we have provided measured, client-centric guidance across credit financing, systematic wealth compounding, and LIC life insurance.
             </p>
 
-            <div className="flex flex-wrap items-center gap-3 pt-2">
+            <div className="flex flex-wrap items-center gap-3 pt-1">
               <div className="inline-flex items-center gap-2 bg-navy-900 border border-gold/40 px-3 py-1.5 rounded-sm text-xs text-gold">
                 <Award className="w-3.5 h-3.5" />
                 <span className="font-semibold tracking-wide">25 Years in Advisory</span>
               </div>
               <div className="inline-flex items-center gap-2 bg-navy-900 border border-white/15 px-3 py-1.5 rounded-sm text-xs text-gray-300">
                 <Shield className="w-3.5 h-3.5 text-gold" />
-                <span>Client-First Stewardship</span>
+                <span>Client-First Focus</span>
               </div>
             </div>
           </div>
@@ -79,19 +80,37 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 4: Office Dossier (2 cols on lg) */}
-          <div className="lg:col-span-2 space-y-4">
+          {/* Column 4: Office & Verified Contact (3 cols on lg) */}
+          <div className="lg:col-span-3 space-y-4">
             <h4 className="font-serif text-gold text-base tracking-wide font-semibold">
-              Advisory Office
+              Office & Direct Contact
             </h4>
             
             <div className="space-y-3 text-xs text-gray-300 leading-relaxed font-light">
               <div>
-                <span className="text-[10px] uppercase tracking-wider text-gray-400 block font-medium">Principal</span>
+                <span className="text-[10px] uppercase tracking-wider text-gray-400 block font-medium">Principal Consultant</span>
                 <span className="text-white font-medium text-sm block mt-0.5">{companyData.owner}</span>
               </div>
 
-              <div className="flex items-start gap-2 pt-1">
+              <div className="space-y-2 pt-1 border-t border-white/10">
+                <a 
+                  href={`tel:${companyData.phoneRaw}`} 
+                  className="flex items-center gap-2 text-gray-300 hover:text-gold transition-colors"
+                >
+                  <Phone className="w-3.5 h-3.5 text-gold shrink-0" />
+                  <span className="font-medium text-white">{companyData.phone}</span>
+                </a>
+
+                <a 
+                  href={`mailto:${companyData.email}`} 
+                  className="flex items-center gap-2 text-gray-300 hover:text-gold transition-colors"
+                >
+                  <Mail className="w-3.5 h-3.5 text-gold shrink-0" />
+                  <span>{companyData.email}</span>
+                </a>
+              </div>
+
+              <div className="flex items-start gap-2 pt-2 border-t border-white/10">
                 <MapPin className="w-4 h-4 text-gold shrink-0 mt-0.5" />
                 <div>
                   <span className="text-white font-medium block">Office Location:</span>
@@ -101,7 +120,17 @@ export default function Footer() {
                 </div>
               </div>
 
-              <p className="pt-2 text-[11px] text-gray-400 italic border-t border-white/10">
+              <div className="pt-2">
+                <WhatsAppButton
+                  type="general"
+                  variant="whatsapp"
+                  size="sm"
+                  label="Direct WhatsApp Message"
+                  className="w-full justify-center text-xs"
+                />
+              </div>
+
+              <p className="text-[11px] text-gray-400 italic">
                 In-person consultations by prior appointment.
               </p>
             </div>

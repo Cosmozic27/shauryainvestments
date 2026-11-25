@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import PageHeader from '../components/common/PageHeader';
 import ContactCTA from '../components/common/ContactCTA';
+import WhatsAppButton from '../components/common/WhatsAppButton';
 
 export default function MutualFundsPage() {
   const categories = [
@@ -289,6 +290,24 @@ export default function MutualFundsPage() {
             ))}
           </div>
 
+          <div className="mt-12 p-6 bg-sand/60 rounded-sm border border-stone flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="text-left space-y-1">
+              <h4 className="font-serif text-lg font-semibold text-brand-primary">
+                Have specific mutual fund queries or need KYC guidance?
+              </h4>
+              <p className="text-xs text-brand-secondary">
+                Connect directly with Santosh D. Chavan for objective distribution support.
+              </p>
+            </div>
+            <WhatsAppButton
+              type="mutualFunds"
+              variant="whatsapp"
+              size="md"
+              label="Enquire for Mutual Funds"
+              className="shrink-0 text-xs uppercase tracking-wider font-semibold"
+            />
+          </div>
+
         </div>
       </section>
 
@@ -297,6 +316,8 @@ export default function MutualFundsPage() {
         title="Consult Regarding Mutual Fund Distribution"
         subtitle="Visit our Kurar Village, Malad East office to complete your KYC or align your existing mutual fund schemes with Santosh D. Chavan."
         variant="navy"
+        whatsAppType="mutualFunds"
+        whatsAppLabel="Chat About Mutual Funds"
       />
 
     </div>

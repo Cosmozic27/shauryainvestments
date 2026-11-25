@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import PageHeader from '../components/common/PageHeader';
 import ContactCTA from '../components/common/ContactCTA';
+import WhatsAppButton from '../components/common/WhatsAppButton';
 
 export default function LicInsurancePage() {
   const purposes = [
@@ -230,6 +231,24 @@ export default function LicInsurancePage() {
             ))}
           </div>
 
+          <div className="mt-12 p-6 bg-sand/60 rounded-sm border border-stone flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="text-left space-y-1">
+              <h4 className="font-serif text-lg font-semibold text-brand-primary">
+                Need guidance on a new LIC plan or servicing an existing policy?
+              </h4>
+              <p className="text-xs text-brand-secondary">
+                Get direct assistance for premium payments, nominations, revival, or family claim support.
+              </p>
+            </div>
+            <WhatsAppButton
+              type="licInsurance"
+              variant="whatsapp"
+              size="md"
+              label="Enquire for LIC Insurance"
+              className="shrink-0 text-xs uppercase tracking-wider font-semibold"
+            />
+          </div>
+
         </div>
       </section>
 
@@ -238,6 +257,8 @@ export default function LicInsurancePage() {
         title="Consult Regarding Life Insurance & Policy Servicing"
         subtitle="Visit our office at Kurar Village, Shivaji Nagar, Malad East, Mumbai for unbiased advice regarding life cover requirements or existing policy queries."
         variant="navy"
+        whatsAppType="licInsurance"
+        whatsAppLabel="Chat About LIC Insurance"
       />
 
     </div>

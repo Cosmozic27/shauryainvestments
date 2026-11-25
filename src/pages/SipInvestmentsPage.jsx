@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { 
   PiggyBank, 
@@ -16,14 +16,10 @@ import {
 import PageHeader from '../components/common/PageHeader';
 import ContactCTA from '../components/common/ContactCTA';
 import Button from '../components/common/Button';
+import SipCalculator from '../components/calculators/SipCalculator';
+import WhatsAppButton from '../components/common/WhatsAppButton';
 
 export default function SipInvestmentsPage() {
-  // Interactive teaser for the upcoming Phase 4 SIP Calculator
-  const [teaserMonthly, setTeaserMonthly] = useState(5000);
-  const [teaserYears, setTeaserYears] = useState(15);
-
-  const totalInvested = teaserMonthly * 12 * teaserYears;
-
   const benefits = [
     {
       icon: Repeat,
@@ -207,120 +203,22 @@ export default function SipInvestmentsPage() {
         </div>
       </section>
 
-      {/* Attractive Visual Introduction to Upcoming Phase 4 SIP Calculator */}
-      <section className="py-20 md:py-28 bg-champagne border-b border-stone relative overflow-hidden">
+      {/* Interactive SIP Wealth Compounding Calculator Section */}
+      <section id="sip-calculator" className="py-20 md:py-28 bg-champagne border-b border-stone scroll-mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="bg-cream rounded-sm border border-gold/40 shadow-elevated p-8 sm:p-12 relative overflow-hidden">
-            
-            {/* Top Badge */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-stone/60 mb-8">
-              <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-navy text-gold text-xs font-semibold uppercase tracking-wider rounded-sm mb-2">
-                  <Calculator className="w-3.5 h-3.5" />
-                  <span>Phase 4 Feature Preview</span>
-                </div>
-                <h3 className="font-serif text-2xl sm:text-3xl font-semibold text-brand-primary">
-                  Interactive SIP Compounding Calculator
-                </h3>
-              </div>
-              <span className="text-xs text-brand-secondary max-w-xs text-left sm:text-right">
-                A full-featured interactive financial calculator suite is scheduled for Phase 4. Here is an illustrative preview.
-              </span>
-            </div>
-
-            {/* Interactive Teaser Controls */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              
-              <div className="lg:col-span-7 space-y-6 text-left">
-                <div>
-                  <div className="flex justify-between items-center text-sm font-medium text-brand-primary mb-2">
-                    <span>Monthly Investment Amount</span>
-                    <span className="font-serif text-lg font-bold text-gold">₹{teaserMonthly.toLocaleString('en-IN')}</span>
-                  </div>
-                  <input
-                    type="range"
-                    min="1000"
-                    max="50000"
-                    step="1000"
-                    value={teaserMonthly}
-                    onChange={(e) => setTeaserMonthly(Number(e.target.value))}
-                    className="w-full accent-navy cursor-pointer bg-sand h-2 rounded-sm"
-                  />
-                  <div className="flex justify-between text-[11px] text-brand-secondary mt-1">
-                    <span>₹1,000</span>
-                    <span>₹50,000</span>
-                  </div>
-                </div>
-
-                <div>
-                  <div className="flex justify-between items-center text-sm font-medium text-brand-primary mb-2">
-                    <span>Investment Horizon</span>
-                    <span className="font-serif text-lg font-bold text-gold">{teaserYears} Years</span>
-                  </div>
-                  <input
-                    type="range"
-                    min="1"
-                    max="30"
-                    step="1"
-                    value={teaserYears}
-                    onChange={(e) => setTeaserYears(Number(e.target.value))}
-                    className="w-full accent-navy cursor-pointer bg-sand h-2 rounded-sm"
-                  />
-                  <div className="flex justify-between text-[11px] text-brand-secondary mt-1">
-                    <span>1 Year</span>
-                    <span>30 Years</span>
-                  </div>
-                </div>
-
-                <p className="text-xs text-brand-secondary leading-relaxed italic bg-sand/40 p-4 rounded-sm border border-stone">
-                  *This interactive preview illustrates cash flow accumulation. The full Phase 4 calculator will incorporate dynamic growth modeling, inflation adjustment, and step-up scenarios.
-                </p>
-              </div>
-
-              {/* Calculated Metric Overview */}
-              <div className="lg:col-span-5 bg-navy text-white p-6 sm:p-8 rounded-sm shadow-soft text-left space-y-6">
-                <span className="text-[11px] uppercase tracking-widest text-gold font-semibold block">
-                  Cumulative Principal
-                </span>
-
-                <div className="space-y-1">
-                  <span className="text-xs text-gray-300">Total Capital Contributed:</span>
-                  <p className="font-serif text-3xl sm:text-4xl font-bold text-white">
-                    ₹{totalInvested.toLocaleString('en-IN')}
-                  </p>
-                  <span className="text-xs text-gold-light block pt-1">
-                    Across {teaserYears * 12} continuous monthly installments
-                  </span>
-                </div>
-
-                <div className="pt-4 border-t border-white/10 space-y-2 text-xs text-gray-300">
-                  <div className="flex justify-between">
-                    <span>Monthly Debit:</span>
-                    <strong className="text-white">₹{teaserMonthly.toLocaleString('en-IN')}</strong>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Tenure:</span>
-                    <strong className="text-white">{teaserYears} Years ({teaserYears * 12} mo)</strong>
-                  </div>
-                </div>
-
-                <div className="pt-2">
-                  <Button
-                    href="#footer"
-                    variant="gold"
-                    size="md"
-                    className="w-full justify-center text-xs uppercase tracking-wider"
-                  >
-                    Discuss a Custom SIP Plan
-                  </Button>
-                </div>
-              </div>
-
-            </div>
-
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="text-xs uppercase tracking-widest font-semibold text-gold block mb-2">
+              Wealth Projection Engine
+            </span>
+            <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-brand-primary tracking-tight">
+              Model Your Long-Term Compounding Potential
+            </h2>
+            <p className="mt-4 text-base text-brand-secondary">
+              Experiment with different monthly contributions and horizons to understand the compounding trajectory of disciplined investing.
+            </p>
           </div>
 
+          <SipCalculator />
         </div>
       </section>
 

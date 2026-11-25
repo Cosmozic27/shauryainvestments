@@ -10,9 +10,11 @@ import {
   ShieldCheck, 
   Check, 
   ArrowRight,
-  Sparkles
+  Sparkles,
+  Calculator
 } from 'lucide-react';
 import SectionHeading from '../common/SectionHeading';
+import WhatsAppButton from '../common/WhatsAppButton';
 import { servicesData } from '../../data/servicesData';
 
 const iconMap = {
@@ -147,13 +149,48 @@ export default function ServicePreview() {
           })}
         </div>
 
+        {/* Interactive Financial Tools Quick Banner */}
+        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <Link
+            to="/loans"
+            className="p-5 bg-cream hover:bg-sand/60 border border-stone hover:border-gold/60 rounded-sm shadow-soft transition-all duration-300 flex items-center justify-between group"
+          >
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-sm bg-sand border border-stone flex items-center justify-center text-gold group-hover:bg-navy group-hover:text-gold transition-colors">
+                <Calculator className="w-5 h-5" />
+              </div>
+              <div className="text-left">
+                <span className="text-[10px] uppercase tracking-wider text-gold font-semibold block">Planning Tool</span>
+                <span className="font-serif text-base font-semibold text-brand-primary">Loan EMI Calculator</span>
+              </div>
+            </div>
+            <ArrowRight className="w-4 h-4 text-gold group-hover:translate-x-1 transition-transform" />
+          </Link>
+
+          <Link
+            to="/sip-investments"
+            className="p-5 bg-cream hover:bg-sand/60 border border-stone hover:border-gold/60 rounded-sm shadow-soft transition-all duration-300 flex items-center justify-between group"
+          >
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-sm bg-sand border border-stone flex items-center justify-center text-gold group-hover:bg-navy group-hover:text-gold transition-colors">
+                <TrendingUp className="w-5 h-5" />
+              </div>
+              <div className="text-left">
+                <span className="text-[10px] uppercase tracking-wider text-gold font-semibold block">Planning Tool</span>
+                <span className="font-serif text-base font-semibold text-brand-primary">SIP Compounding Calculator</span>
+              </div>
+            </div>
+            <ArrowRight className="w-4 h-4 text-gold group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </div>
+
         {/* Tailored Consultation Reassurance Strip */}
         <motion.div 
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mt-16 bg-cream border border-stone rounded-sm p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-soft"
+          className="mt-6 bg-cream border border-stone rounded-sm p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-soft"
         >
           <div className="space-y-1 text-center md:text-left">
             <span className="text-[11px] uppercase tracking-widest text-gold font-semibold">
@@ -167,12 +204,21 @@ export default function ServicePreview() {
             </p>
           </div>
 
-          <a
-            href="#footer"
-            className="shrink-0 inline-flex items-center justify-center text-xs uppercase tracking-wider font-semibold text-brand-primary border border-stone px-6 py-3 rounded-sm hover:bg-navy hover:text-white hover:border-navy transition-all duration-200"
-          >
-            Office Address & Info
-          </a>
+          <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
+            <WhatsAppButton
+              type="general"
+              variant="whatsapp"
+              size="md"
+              label="WhatsApp Consultation"
+              className="w-full sm:w-auto text-xs uppercase tracking-wider font-semibold"
+            />
+            <a
+              href="#footer"
+              className="shrink-0 inline-flex items-center justify-center text-xs uppercase tracking-wider font-semibold text-brand-primary border border-stone px-6 py-3 rounded-sm hover:bg-navy hover:text-white hover:border-navy transition-all duration-200 w-full sm:w-auto"
+            >
+              Office Address & Info
+            </a>
+          </div>
         </motion.div>
 
       </div>

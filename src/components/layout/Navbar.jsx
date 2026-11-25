@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
-import { Menu, X, ArrowUpRight, Award, MapPin } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Award, MapPin, Phone, Mail } from 'lucide-react';
 import Logo from '../common/Logo';
 import Button from '../common/Button';
+import WhatsAppButton from '../common/WhatsAppButton';
 import { companyData } from '../../data/companyData';
 
 export default function Navbar() {
@@ -76,21 +77,29 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Right Action / Trust Info */}
-          <div className="hidden sm:flex items-center space-x-4">
-            <div className="hidden xl:flex items-center gap-1.5 text-xs text-brand-secondary border-r border-stone pr-4">
+          {/* Right Action / Direct Contact Info */}
+          <div className="hidden sm:flex items-center space-x-3.5">
+            <div className="hidden xl:flex items-center gap-1.5 text-xs text-brand-secondary border-r border-stone pr-3.5">
               <Award className="w-3.5 h-3.5 text-gold shrink-0" />
               <span>25 Yrs in Mumbai</span>
             </div>
+
+            <WhatsAppButton
+              type="general"
+              variant="whatsapp"
+              size="sm"
+              label="WhatsApp"
+              className="text-xs uppercase tracking-wider font-semibold px-3 py-1.5"
+            />
 
             <Button
               to="/services"
               variant="primary"
               size="sm"
               icon={ArrowUpRight}
-              className="text-xs tracking-wider uppercase px-4 py-2"
+              className="text-xs tracking-wider uppercase px-3.5 py-1.5"
             >
-              Our Solutions
+              Services
             </Button>
           </div>
 
@@ -141,6 +150,15 @@ export default function Navbar() {
               ))}
 
               <div className="pt-4 border-t border-stone space-y-3">
+                <WhatsAppButton
+                  type="general"
+                  variant="whatsapp"
+                  size="md"
+                  label="Direct WhatsApp Message"
+                  className="w-full text-center justify-center font-semibold text-xs uppercase tracking-wider"
+                  onClick={() => setMobileMenuOpen(false)}
+                />
+
                 <Button
                   to="/services"
                   variant="primary"
@@ -151,10 +169,30 @@ export default function Navbar() {
                   Explore All Services
                 </Button>
 
-                <div className="flex items-start gap-2 pt-2 text-xs text-brand-secondary">
-                  <MapPin className="w-3.5 h-3.5 text-gold shrink-0 mt-0.5" />
-                  <span>Kurar Village, Shivaji Nagar, Malad East, Mumbai</span>
+                {/* Direct Phone & Email in Mobile Menu */}
+                <div className="pt-3 border-t border-stone/60 space-y-2 text-xs text-brand-secondary">
+                  <a 
+                    href={`tel:${companyData.phoneRaw}`}
+                    className="flex items-center gap-2 hover:text-gold transition-colors"
+                  >
+                    <Phone className="w-3.5 h-3.5 text-gold shrink-0" />
+                    <span className="font-medium text-brand-primary">{companyData.phone}</span>
+                  </a>
+
+                  <a 
+                    href={`mailto:${companyData.email}`}
+                    className="flex items-center gap-2 hover:text-gold transition-colors"
+                  >
+                    <Mail className="w-3.5 h-3.5 text-gold shrink-0" />
+                    <span>{companyData.email}</span>
+                  </a>
+
+                  <div className="flex items-start gap-2 pt-1">
+                    <MapPin className="w-3.5 h-3.5 text-gold shrink-0 mt-0.5" />
+                    <span>Kurar Village, Shivaji Nagar, Malad East, Mumbai</span>
+                  </div>
                 </div>
+
               </div>
             </div>
           </div>
