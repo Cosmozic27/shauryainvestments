@@ -1,5 +1,6 @@
 import React from 'react';
 import { getWhatsAppUrl } from '../../data/companyData';
+import Magnetic from './Magnetic';
 
 /**
  * Reusable WhatsApp SVG Icon
@@ -28,6 +29,7 @@ export default function WhatsAppButton({
   label = 'Enquire on WhatsApp',
   className = '',
   showIcon = true,
+  magnetic = false,
   ...props
 }) {
   const url = getWhatsAppUrl(type);
@@ -50,7 +52,7 @@ export default function WhatsAppButton({
     // Subtle stone outline variant
     outline: "border border-stone text-brand-primary hover:border-gold hover:text-gold hover:bg-cream focus:ring-gold",
     // Floating circular button on mobile/desktop
-    floating: "fixed bottom-6 right-6 z-50 bg-[#25D366] text-white hover:bg-[#20ba59] p-3.5 rounded-full shadow-elevated hover:scale-105 active:scale-95 transition-all focus:ring-4 focus:ring-[#25D366]/30",
+    floating: "fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-30 bg-[#25D366] text-white hover:bg-[#20ba59] p-3.5 rounded-full shadow-elevated hover:scale-105 active:scale-95 transition-all focus:ring-4 focus:ring-[#25D366]/30 print:hidden",
   };
 
   if (variant === 'floating') {

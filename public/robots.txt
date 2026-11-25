@@ -1,0 +1,7 @@
+# Shaurya Investments Robots.txt
+User-agent: *
+Allow: /
+Disallow: /404
+
+# XML Sitemap (Replace https://shauryainvestments.com with production domain if different)
+Sitemap: https://shauryainvestments.com/sitemap.xml

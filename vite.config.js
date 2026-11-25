@@ -7,6 +7,10 @@ export default defineConfig({
     port: 3000,
     open: false
   },
+  preview: {
+    port: 3000,
+    open: false
+  },
   build: {
     rollupOptions: {
       output: {

@@ -19,7 +19,7 @@ export default function Logo({
   return (
     <Link 
       to="/" 
-      className={`group inline-flex items-center gap-3.5 select-none focus:outline-none focus-visible:ring-1 focus-visible:ring-gold ${className}`}
+      className={`group inline-flex items-center gap-3.5 select-none shrink-0 focus:outline-none focus-visible:ring-1 focus-visible:ring-gold ${className}`}
       aria-label="Shaurya Investments - Home"
     >
       {/* Official Metallic Gold Emblem Container */}

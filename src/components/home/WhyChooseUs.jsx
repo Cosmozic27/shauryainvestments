@@ -53,12 +53,27 @@ const reasons = [
 
 export default function WhyChooseUs() {
   return (
-    <section id="why-choose-us" className="py-24 md:py-32 bg-navy text-white relative overflow-hidden scroll-mt-24">
+    <section 
+      id="why-choose-us" 
+      data-theme="dark"
+      data-nav-contrast="dark"
+      className="py-24 md:py-32 bg-navy text-white relative overflow-hidden scroll-mt-24 border-t border-gold/30"
+    >
       
-      {/* Background architectural ambiance */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.03] bg-[radial-gradient(#C9A96E_1px,transparent_1px)] [background-size:32px_32px]" />
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gold/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-white/5 rounded-full blur-[100px] pointer-events-none" />
+      {/* Background architectural ambiance & official SI watermark */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.035] bg-[radial-gradient(#C9A96E_1px,transparent_1px)] [background-size:32px_32px]" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gold/15 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[450px] h-[450px] bg-navy-800/80 rounded-full blur-[120px] pointer-events-none" />
+      
+      {/* Official SI Emblem Center Background Watermark */}
+      <div className="absolute inset-0 flex items-center justify-center opacity-[0.04] pointer-events-none">
+        <img 
+          src="/assets/logo/logo-symbol.png" 
+          alt="" 
+          aria-hidden="true" 
+          className="w-[550px] h-[550px] object-contain filter brightness-125"
+        />
+      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         
@@ -80,7 +95,7 @@ export default function WhyChooseUs() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-4 bg-navy-900 rounded-sm border border-gold/30 p-8 flex flex-col justify-between shadow-elevated relative overflow-hidden"
+            className="card-glass-dark lg:col-span-4 rounded-sm p-8 flex flex-col justify-between relative overflow-hidden gold-sweep-active"
           >
             {/* Background architectural vignette */}
             <div className="absolute top-0 right-0 w-full h-48 opacity-20 pointer-events-none overflow-hidden">
@@ -110,8 +125,13 @@ export default function WhyChooseUs() {
 
             <div className="relative pt-8 mt-8 border-t border-white/10 space-y-4">
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded bg-navy-800 border border-gold/40 flex items-center justify-center text-gold font-serif font-bold text-sm">
-                  SI
+                <div className="w-10 h-10 rounded bg-navy-800 border border-gold/40 flex items-center justify-center p-1 overflow-hidden shadow-sm">
+                  <img 
+                    src="/assets/logo/logo-symbol.png" 
+                    alt="Shaurya Investments Crest" 
+                    className="w-full h-full object-contain filter drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" 
+                    loading="lazy"
+                  />
                 </div>
                 <div>
                   <span className="text-white font-medium text-sm block">Santosh D. Chavan</span>
@@ -139,7 +159,7 @@ export default function WhyChooseUs() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-40px" }}
                   transition={{ duration: 0.5, delay: index * 0.06 }}
-                  className="bg-navy-900/80 backdrop-blur-sm p-7 rounded-sm border border-white/10 hover:border-gold/50 transition-all duration-300 group flex flex-col justify-between"
+                  className="card-glass-dark p-7 rounded-sm group flex flex-col justify-between"
                 >
                   <div>
                     {/* Top Row: Icon & Roman/Digit Number */}

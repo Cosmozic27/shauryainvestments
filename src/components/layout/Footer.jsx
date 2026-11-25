@@ -14,7 +14,12 @@ export default function Footer() {
   };
 
   return (
-    <footer id="footer" className="bg-navy-950 text-white pt-20 pb-12 border-t border-gold/30">
+    <footer 
+      id="footer" 
+      data-theme="dark"
+      data-nav-contrast="dark"
+      className="bg-navy-950 text-white pt-20 pb-12 border-t border-gold/30"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main 4-Column Footer Architecture */}
@@ -145,9 +150,17 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Bottom Bar: Copyright & Back to Top */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400 gap-4">
-          <p>© {currentYear} {companyData.name}. All rights reserved.</p>
+        {/* Bottom Bar: Copyright, Legal Links & Back to Top */}
+        <div className="pt-6 flex flex-col lg:flex-row items-center justify-between text-xs text-gray-400 gap-4">
+          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-y-2 gap-x-3 text-center sm:text-left">
+            <span>© {currentYear} {companyData.name}. All rights reserved.</span>
+            <span className="hidden sm:inline text-white/20">·</span>
+            <Link to="/privacy-policy" className="hover:text-gold transition-colors">Privacy Policy</Link>
+            <span className="text-white/20">·</span>
+            <Link to="/terms-and-conditions" className="hover:text-gold transition-colors">Terms & Conditions</Link>
+            <span className="text-white/20">·</span>
+            <Link to="/financial-disclaimer" className="hover:text-gold transition-colors">Financial Disclaimer</Link>
+          </div>
 
           <div className="flex items-center gap-6">
             <span className="text-gray-400">

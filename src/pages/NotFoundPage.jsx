@@ -2,10 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Home, Compass } from 'lucide-react';
 import Button from '../components/common/Button';
+import SEO from '../components/common/SEO';
 
 export default function NotFoundPage() {
   return (
     <div className="min-h-[75vh] flex items-center justify-center bg-champagne py-24 px-4 sm:px-6 lg:px-8">
+      <SEO
+        title="Page Not Found"
+        description="The requested page could not be located on Shaurya Investments."
+      />
       <div className="max-w-md w-full text-center space-y-6 bg-cream p-8 sm:p-10 rounded-sm border border-stone shadow-elevated">
         
         {/* 404 Status Emblem */}

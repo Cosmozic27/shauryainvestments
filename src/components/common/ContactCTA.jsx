@@ -17,10 +17,30 @@ export default function ContactCTA({
   const isNavy = variant === "navy";
 
   return (
-    <section className={`py-16 md:py-20 border-y ${
-      isNavy ? 'bg-navy text-white border-navy-800' : 'bg-sand text-brand-primary border-stone'
-    }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section 
+      data-theme={isNavy ? "dark" : "light"}
+      data-nav-contrast={isNavy ? "dark" : "light"}
+      className={`py-16 md:py-20 border-y relative overflow-hidden ${
+        isNavy ? 'bg-navy text-white border-navy-800' : 'bg-sand text-brand-primary border-stone'
+      }`}
+    >
+      {/* Background Architectural Ambiance & SI Watermark for Navy variant */}
+      {isNavy && (
+        <>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_right,rgba(201,169,110,0.1)_0,transparent_65%)] pointer-events-none" />
+          <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#C9A96E_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none" />
+          <div className="absolute inset-0 flex items-center justify-end pr-12 opacity-[0.03] pointer-events-none">
+            <img 
+              src="/assets/logo/logo-symbol.png" 
+              alt="" 
+              aria-hidden="true" 
+              className="w-96 h-96 object-contain filter brightness-125"
+            />
+          </div>
+        </>
+      )}
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           <div className="lg:col-span-8 space-y-4 text-left">
