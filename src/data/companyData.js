@@ -11,10 +11,12 @@ export const companyData = {
     full: "Kurar Village, Shivaji Nagar, Malad East, Mumbai, Maharashtra, India"
   },
   navigation: [
-    { label: "Home", href: "#hero" },
-    { label: "About", href: "#about" },
-    { label: "Services", href: "#services" },
-    { label: "Why Choose Us", href: "#why-choose-us" },
-    { label: "Contact", href: "#footer" },
+    { label: "Home", path: "/" },
+    { label: "About Us", path: "/about" },
+    { label: "Services", path: "/services" },
+    { label: "Loans", path: "/loans" },
+    { label: "Mutual Funds", path: "/mutual-funds" },
+    { label: "SIP", path: "/sip-investments" },
+    { label: "LIC Insurance", path: "/lic-insurance" },
   ]
 };

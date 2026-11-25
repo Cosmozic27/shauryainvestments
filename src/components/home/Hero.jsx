@@ -73,7 +73,7 @@ export default function Hero() {
               className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4"
             >
               <Button
-                href="#services"
+                to="/services"
                 variant="primary"
                 size="lg"
                 icon={ArrowRight}
@@ -82,7 +82,7 @@ export default function Hero() {
                 Explore Advisory Verticals
               </Button>
               <Button
-                href="#about"
+                to="/about"
                 variant="outline"
                 size="lg"
               >

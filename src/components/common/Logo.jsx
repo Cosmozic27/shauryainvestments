@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 /**
  * Premium SI Monogram Logo using CSS, metallic gold highlights, and serif typography.
@@ -15,8 +16,8 @@ export default function Logo({
   const isLarge = size === 'large';
 
   return (
-    <a 
-      href="#" 
+    <Link 
+      to="/" 
       className={`group inline-flex items-center gap-3.5 select-none focus:outline-none focus-visible:ring-1 focus-visible:ring-gold ${className}`}
       aria-label="Shaurya Investments - Home"
     >
@@ -96,6 +97,6 @@ export default function Logo({
           </div>
         )}
       </div>
-    </a>
+    </Link>
   );
 }

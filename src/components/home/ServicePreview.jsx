@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
   Home, 
@@ -131,13 +132,16 @@ export default function ServicePreview() {
                 </div>
 
                 {/* Bottom Card Footer Interaction */}
-                <div className="mt-8 pt-4 border-t border-stone/60 flex items-center justify-between text-xs font-medium text-brand-secondary group-hover:text-brand-primary transition-colors">
-                  <span className="tracking-wide">Personalized Advisory</span>
+                <Link 
+                  to={service.path}
+                  className="mt-8 pt-4 border-t border-stone/60 flex items-center justify-between text-xs font-medium text-brand-secondary group-hover:text-brand-primary transition-colors focus:outline-none"
+                >
+                  <span className="tracking-wide">Explore Details & Process</span>
                   <div className="flex items-center gap-1 text-gold font-semibold text-[11px] uppercase tracking-wider group-hover:translate-x-1 transition-transform">
-                    <span>Details</span>
+                    <span>Learn More</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </div>
-                </div>
+                </Link>
               </motion.div>
             );
           })}

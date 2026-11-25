@@ -1,0 +1,336 @@
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { 
+  PiggyBank, 
+  TrendingUp, 
+  Calendar, 
+  Sparkles, 
+  ShieldAlert, 
+  CheckCircle2, 
+  Repeat, 
+  Calculator, 
+  ArrowRight,
+  Clock,
+  Layers
+} from 'lucide-react';
+import PageHeader from '../components/common/PageHeader';
+import ContactCTA from '../components/common/ContactCTA';
+import Button from '../components/common/Button';
+
+export default function SipInvestmentsPage() {
+  // Interactive teaser for the upcoming Phase 4 SIP Calculator
+  const [teaserMonthly, setTeaserMonthly] = useState(5000);
+  const [teaserYears, setTeaserYears] = useState(15);
+
+  const totalInvested = teaserMonthly * 12 * teaserYears;
+
+  const benefits = [
+    {
+      icon: Repeat,
+      title: "Rupee-Cost Averaging",
+      description: "When the market corrects, your fixed monthly allocation buys more mutual fund units. When markets rise, you buy fewer. Over time, this smooths out purchase costs without needing to time market peaks or valleys."
+    },
+    {
+      icon: Calendar,
+      title: "Disciplined Habit Formation",
+      description: "Automated monthly deductions cultivate effortless financial discipline. By prioritizing investing on payday, you eliminate impulsive expenditures and maintain consistency across market cycles."
+    },
+    {
+      icon: TrendingUp,
+      title: "The Power of Compounding",
+      description: "Returns earned on your invested capital are reinvested to generate their own returns. Over 10, 15, or 25 years, compounding transforms small periodic installments into substantial wealth."
+    },
+    {
+      icon: Clock,
+      title: "Flexibility & Convenience",
+      description: "You can start with modest monthly amounts (often as low as ₹500 or ₹1,000), choose convenient debit dates, pause when necessary, or step-up contributions as your annual income expands."
+    }
+  ];
+
+  const compoundingPillars = [
+    {
+      title: "Time Horizon is Paramount",
+      description: "Compounding operates like a snowball: the real acceleration takes place in the latter half of the investment tenure. Staying invested through interim corrections is crucial."
+    },
+    {
+      title: "Consistency Outweighs Market Timing",
+      description: "Attempting to predict market tops and bottoms usually leads to missed rallies. An uninterrupted SIP ensures you participate across all economic phases."
+    },
+    {
+      title: "Step-Up Escalation",
+      description: "Increasing your SIP contribution by 5% to 10% annually in step with salary increments significantly magnifies the terminal corpus."
+    }
+  ];
+
+  return (
+    <div className="w-full bg-champagne">
+      
+      {/* Editorial Page Header */}
+      <PageHeader
+        badge="Systematic Wealth Building"
+        title="SIP Investments: The Disciplined Path to Wealth Creation"
+        description="A Systematic Investment Plan (SIP) allows you to invest small, fixed amounts in mutual funds on a recurring monthly basis. It instills financial discipline, averages market volatility, and harnesses the power of long-term compounding."
+        breadcrumbs={[{ label: "Services", path: "/services" }, { label: "SIP Investments" }]}
+      />
+
+      {/* Mandatory Statutory Risk Notice */}
+      <div className="bg-sand border-b border-stone py-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-start sm:items-center gap-3 text-xs text-brand-secondary">
+          <ShieldAlert className="w-4 h-4 text-gold shrink-0 mt-0.5 sm:mt-0" />
+          <p>
+            <strong className="text-brand-primary font-medium">Market Risk Disclosure:</strong> Mutual fund investments and SIPs are subject to market risks; read all scheme-related documents carefully. Returns from mutual fund SIPs are market-linked, fluctuate with macroeconomic conditions, and are strictly not guaranteed. Past performance does not guarantee future results.
+          </p>
+        </div>
+      </div>
+
+      {/* What is an SIP & How It Works */}
+      <section className="py-20 md:py-28 bg-champagne border-b border-stone">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div className="lg:col-span-7 space-y-6 text-left">
+              <span className="text-xs uppercase tracking-widest font-semibold text-gold block">
+                Disciplined Architecture
+              </span>
+              <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-brand-primary tracking-tight leading-snug">
+                How Monthly Investing Transforms Saving Into Wealth
+              </h2>
+
+              <div className="space-y-4 text-base text-brand-secondary leading-relaxed font-normal">
+                <p>
+                  A <strong className="text-brand-primary font-semibold">Systematic Investment Plan (SIP)</strong> is not a distinct financial product itself, but a disciplined method of investing in mutual fund schemes.
+                </p>
+                <p>
+                  Instead of committing a large lump-sum, a pre-determined sum (e.g., ₹2,000, ₹5,000, or ₹25,000) is automatically debited from your bank account on a chosen date every month via NACH or e-mandate.
+                </p>
+                <p>
+                  This capital is utilized to purchase units in selected mutual fund schemes at the prevailing Net Asset Value (NAV). By eliminating the urge to time market peaks and troughs, an SIP turns market volatility into an ally.
+                </p>
+              </div>
+
+              {/* 3 Quick Facts */}
+              <div className="pt-2 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="p-3.5 bg-sand/60 rounded-sm border border-stone">
+                  <span className="text-xs text-brand-secondary block uppercase tracking-wider font-medium">Starting Point</span>
+                  <span className="font-serif text-lg font-bold text-brand-primary mt-0.5 block">From ₹500/mo</span>
+                  <span className="text-[11px] text-brand-secondary">Accessible to all earners</span>
+                </div>
+                <div className="p-3.5 bg-sand/60 rounded-sm border border-stone">
+                  <span className="text-xs text-brand-secondary block uppercase tracking-wider font-medium">Frequency</span>
+                  <span className="font-serif text-lg font-bold text-brand-primary mt-0.5 block">Monthly Auto-Debit</span>
+                  <span className="text-[11px] text-brand-secondary">Effortless habit building</span>
+                </div>
+                <div className="p-3.5 bg-sand/60 rounded-sm border border-stone">
+                  <span className="text-xs text-brand-secondary block uppercase tracking-wider font-medium">Strategy</span>
+                  <span className="font-serif text-lg font-bold text-brand-primary mt-0.5 block">Averaging</span>
+                  <span className="text-[11px] text-brand-secondary">Smooths volatility cycles</span>
+                </div>
+              </div>
+
+            </div>
+
+            {/* Right: Compounding Explanatory Card */}
+            <div className="lg:col-span-5">
+              <div className="bg-cream p-8 rounded-sm border border-stone shadow-elevated text-left space-y-6">
+                <div className="flex items-center gap-2.5 pb-4 border-b border-stone/60">
+                  <Sparkles className="w-5 h-5 text-gold" />
+                  <h3 className="font-serif text-xl font-semibold text-brand-primary">
+                    Compounding Explained Simply
+                  </h3>
+                </div>
+
+                <p className="text-sm text-brand-secondary leading-relaxed font-normal">
+                  Albert Einstein famously described compound interest as the eighth wonder of the world. In an equity or hybrid SIP, compounding occurs when the earnings generated on your accumulated units are retained to generate further earnings.
+                </p>
+
+                <div className="space-y-3 pt-2 text-xs text-brand-primary">
+                  {compoundingPillars.map((p, idx) => (
+                    <div key={idx} className="p-3 bg-sand/40 rounded-sm border border-stone/60">
+                      <strong className="block text-brand-primary text-sm font-semibold mb-1">{p.title}</strong>
+                      <span className="text-brand-secondary leading-relaxed">{p.description}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="text-[11px] text-brand-secondary italic border-t border-stone/60 pt-3">
+                  At Shaurya Investments, we help you determine the appropriate SIP amount aligned with your retirement, children's education, or milestone horizons.
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* The 4 Core Benefits */}
+      <section className="py-20 md:py-28 bg-sand border-b border-stone">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <span className="text-xs uppercase tracking-widest font-semibold text-gold block mb-2">
+              Investor Advantages
+            </span>
+            <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-brand-primary tracking-tight">
+              Why Disciplined SIPs Create Enduring Wealth
+            </h2>
+            <p className="mt-4 text-base text-brand-secondary">
+              Four fundamental advantages that make Systematic Investment Planning the preferred wealth accumulation vehicle for Indian families.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {benefits.map((benefit) => {
+              const Icon = benefit.icon;
+              return (
+                <div 
+                  key={benefit.title}
+                  className="bg-cream p-7 rounded-sm border border-stone shadow-soft text-left flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="w-12 h-12 rounded-sm bg-sand border border-stone flex items-center justify-center text-gold mb-5">
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <h3 className="font-serif text-lg font-semibold text-brand-primary mb-2.5">
+                      {benefit.title}
+                    </h3>
+                    <p className="text-xs text-brand-secondary leading-relaxed font-normal">
+                      {benefit.description}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+        </div>
+      </section>
+
+      {/* Attractive Visual Introduction to Upcoming Phase 4 SIP Calculator */}
+      <section className="py-20 md:py-28 bg-champagne border-b border-stone relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="bg-cream rounded-sm border border-gold/40 shadow-elevated p-8 sm:p-12 relative overflow-hidden">
+            
+            {/* Top Badge */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-stone/60 mb-8">
+              <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-navy text-gold text-xs font-semibold uppercase tracking-wider rounded-sm mb-2">
+                  <Calculator className="w-3.5 h-3.5" />
+                  <span>Phase 4 Feature Preview</span>
+                </div>
+                <h3 className="font-serif text-2xl sm:text-3xl font-semibold text-brand-primary">
+                  Interactive SIP Compounding Calculator
+                </h3>
+              </div>
+              <span className="text-xs text-brand-secondary max-w-xs text-left sm:text-right">
+                A full-featured interactive financial calculator suite is scheduled for Phase 4. Here is an illustrative preview.
+              </span>
+            </div>
+
+            {/* Interactive Teaser Controls */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              
+              <div className="lg:col-span-7 space-y-6 text-left">
+                <div>
+                  <div className="flex justify-between items-center text-sm font-medium text-brand-primary mb-2">
+                    <span>Monthly Investment Amount</span>
+                    <span className="font-serif text-lg font-bold text-gold">₹{teaserMonthly.toLocaleString('en-IN')}</span>
+                  </div>
+                  <input
+                    type="range"
+                    min="1000"
+                    max="50000"
+                    step="1000"
+                    value={teaserMonthly}
+                    onChange={(e) => setTeaserMonthly(Number(e.target.value))}
+                    className="w-full accent-navy cursor-pointer bg-sand h-2 rounded-sm"
+                  />
+                  <div className="flex justify-between text-[11px] text-brand-secondary mt-1">
+                    <span>₹1,000</span>
+                    <span>₹50,000</span>
+                  </div>
+                </div>
+
+                <div>
+                  <div className="flex justify-between items-center text-sm font-medium text-brand-primary mb-2">
+                    <span>Investment Horizon</span>
+                    <span className="font-serif text-lg font-bold text-gold">{teaserYears} Years</span>
+                  </div>
+                  <input
+                    type="range"
+                    min="1"
+                    max="30"
+                    step="1"
+                    value={teaserYears}
+                    onChange={(e) => setTeaserYears(Number(e.target.value))}
+                    className="w-full accent-navy cursor-pointer bg-sand h-2 rounded-sm"
+                  />
+                  <div className="flex justify-between text-[11px] text-brand-secondary mt-1">
+                    <span>1 Year</span>
+                    <span>30 Years</span>
+                  </div>
+                </div>
+
+                <p className="text-xs text-brand-secondary leading-relaxed italic bg-sand/40 p-4 rounded-sm border border-stone">
+                  *This interactive preview illustrates cash flow accumulation. The full Phase 4 calculator will incorporate dynamic growth modeling, inflation adjustment, and step-up scenarios.
+                </p>
+              </div>
+
+              {/* Calculated Metric Overview */}
+              <div className="lg:col-span-5 bg-navy text-white p-6 sm:p-8 rounded-sm shadow-soft text-left space-y-6">
+                <span className="text-[11px] uppercase tracking-widest text-gold font-semibold block">
+                  Cumulative Principal
+                </span>
+
+                <div className="space-y-1">
+                  <span className="text-xs text-gray-300">Total Capital Contributed:</span>
+                  <p className="font-serif text-3xl sm:text-4xl font-bold text-white">
+                    ₹{totalInvested.toLocaleString('en-IN')}
+                  </p>
+                  <span className="text-xs text-gold-light block pt-1">
+                    Across {teaserYears * 12} continuous monthly installments
+                  </span>
+                </div>
+
+                <div className="pt-4 border-t border-white/10 space-y-2 text-xs text-gray-300">
+                  <div className="flex justify-between">
+                    <span>Monthly Debit:</span>
+                    <strong className="text-white">₹{teaserMonthly.toLocaleString('en-IN')}</strong>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Tenure:</span>
+                    <strong className="text-white">{teaserYears} Years ({teaserYears * 12} mo)</strong>
+                  </div>
+                </div>
+
+                <div className="pt-2">
+                  <Button
+                    href="#footer"
+                    variant="gold"
+                    size="md"
+                    className="w-full justify-center text-xs uppercase tracking-wider"
+                  >
+                    Discuss a Custom SIP Plan
+                  </Button>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* Prominent Contact CTA */}
+      <ContactCTA
+        title="Start Your Disciplined SIP With Shaurya Investments"
+        subtitle="Bring your KYC and banking details to our Kurar Village, Malad East office. Santosh D. Chavan will assist you with seamless scheme distribution setup."
+        variant="navy"
+      />
+
+    </div>
+  );
+}

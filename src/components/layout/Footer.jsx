@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { MapPin, Award, Shield, ArrowUp, ArrowUpRight } from 'lucide-react';
 import Logo from '../common/Logo';
 import { companyData } from '../../data/companyData';
@@ -46,13 +47,13 @@ export default function Footer() {
             <ul className="space-y-2.5 text-sm text-gray-300 font-light">
               {servicesData.map((service) => (
                 <li key={service.id}>
-                  <a
-                    href="#services"
+                  <Link
+                    to={service.path}
                     className="hover:text-gold transition-colors inline-flex items-center gap-2 group"
                   >
                     <span className="w-1 h-1 rounded-full bg-gold/50 group-hover:bg-gold group-hover:w-2 transition-all duration-200" />
                     <span>{service.title}</span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -66,13 +67,13 @@ export default function Footer() {
             <ul className="space-y-2.5 text-sm text-gray-300 font-light">
               {companyData.navigation.map((item) => (
                 <li key={item.label}>
-                  <a
-                    href={item.href}
+                  <Link
+                    to={item.path}
                     className="hover:text-gold transition-colors inline-flex items-center gap-1.5 group"
                   >
                     <span>{item.label}</span>
                     <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-gold" />
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight, Shield, MapPin, Award } from 'lucide-react';
+import { NavLink, Link, useLocation } from 'react-router-dom';
+import { Menu, X, ArrowUpRight, Award, MapPin } from 'lucide-react';
 import Logo from '../common/Logo';
 import Button from '../common/Button';
 import { companyData } from '../../data/companyData';
@@ -7,6 +8,7 @@ import { companyData } from '../../data/companyData';
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,6 +31,11 @@ export default function Navbar() {
     };
   }, [mobileMenuOpen]);
 
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location.pathname]);
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -44,28 +51,40 @@ export default function Navbar() {
           <Logo size="normal" showTagline={!isScrolled} />
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-9">
+          <nav className="hidden lg:flex items-center space-x-7 xl:space-x-8">
             {companyData.navigation.map((item) => (
-              <a
+              <NavLink
                 key={item.label}
-                href={item.href}
-                className="text-[13px] font-medium tracking-wide uppercase text-brand-primary/85 hover:text-brand-primary transition-colors relative py-1 group"
+                to={item.path}
+                className={({ isActive }) => `text-[13px] font-medium tracking-wide uppercase transition-colors relative py-1 group ${
+                  isActive 
+                    ? 'text-brand-primary font-semibold' 
+                    : 'text-brand-primary/75 hover:text-brand-primary'
+                }`}
               >
-                <span>{item.label}</span>
-                <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-gold transition-all duration-200 group-hover:w-full" />
-              </a>
+                {({ isActive }) => (
+                  <>
+                    <span>{item.label}</span>
+                    <span 
+                      className={`absolute bottom-0 left-0 h-[1.5px] bg-gold transition-all duration-200 ${
+                        isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                      }`} 
+                    />
+                  </>
+                )}
+              </NavLink>
             ))}
           </nav>
 
           {/* Right Action / Trust Info */}
-          <div className="hidden sm:flex items-center space-x-5">
-            <div className="hidden xl:flex items-center gap-2 text-xs text-navy/70 border-r border-navy/15 pr-5">
-              <Award className="w-4 h-4 text-gold shrink-0" />
-              <span className="font-medium">25 Years in Mumbai</span>
+          <div className="hidden sm:flex items-center space-x-4">
+            <div className="hidden xl:flex items-center gap-1.5 text-xs text-brand-secondary border-r border-stone pr-4">
+              <Award className="w-3.5 h-3.5 text-gold shrink-0" />
+              <span>25 Yrs in Mumbai</span>
             </div>
 
             <Button
-              href="#services"
+              to="/services"
               variant="primary"
               size="sm"
               icon={ArrowUpRight}
@@ -80,7 +99,7 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-sm text-navy hover:text-gold hover:bg-navy/5 transition-colors focus:outline-none focus:ring-1 focus:ring-gold"
+              className="p-2 rounded-sm text-brand-primary hover:text-gold hover:bg-stone/30 transition-colors focus:outline-none focus:ring-1 focus:ring-gold"
               aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
               aria-expanded={mobileMenuOpen}
             >
@@ -101,27 +120,29 @@ export default function Navbar() {
             className="bg-champagne border-b border-stone px-6 pt-6 pb-8 shadow-elevated max-h-[calc(100vh-65px)] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex flex-col space-y-4">
+            <div className="flex flex-col space-y-3">
               <div className="pb-3 border-b border-stone flex items-center justify-between text-xs text-brand-secondary">
                 <span>Santosh D. Chavan · Financial Advisory</span>
                 <span className="text-gold font-semibold">25 Yrs Experience</span>
               </div>
 
               {companyData.navigation.map((item) => (
-                <a
+                <NavLink
                   key={item.label}
-                  href={item.href}
+                  to={item.path}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="py-2.5 text-base font-serif font-medium text-brand-primary hover:text-gold transition-colors flex items-center justify-between group"
+                  className={({ isActive }) => `py-2 text-base font-serif font-medium transition-colors flex items-center justify-between group ${
+                    isActive ? 'text-gold font-semibold pl-2 border-l-2 border-gold' : 'text-brand-primary hover:text-gold'
+                  }`}
                 >
                   <span>{item.label}</span>
                   <ArrowUpRight className="w-4 h-4 text-gold opacity-0 group-hover:opacity-100 transition-opacity" />
-                </a>
+                </NavLink>
               ))}
 
               <div className="pt-4 border-t border-stone space-y-3">
                 <Button
-                  href="#services"
+                  to="/services"
                   variant="primary"
                   size="md"
                   className="w-full text-center"
