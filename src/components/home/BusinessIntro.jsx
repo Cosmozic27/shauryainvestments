@@ -47,10 +47,15 @@ export default function BusinessIntro() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/50 to-transparent" />
 
-                  {/* Established Monogram Badge */}
+                  {/* Official Emblem Badge */}
                   <div className="absolute bottom-4 left-6 flex items-center gap-3">
-                    <div className="w-12 h-12 rounded bg-navy-900 border border-gold/60 flex items-center justify-center shadow-md">
-                      <span className="font-serif text-lg font-bold text-gold tracking-widest pl-0.5">SI</span>
+                    <div className="w-12 h-12 rounded bg-navy-900 border border-gold/60 flex items-center justify-center shadow-md p-1.5 overflow-hidden">
+                      <img 
+                        src="/assets/logo/logo-symbol.png" 
+                        alt="Shaurya Investments Crest" 
+                        className="w-full h-full object-contain filter drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]"
+                        loading="lazy"
+                      />
                     </div>
                     <div>
                       <span className="text-[10px] uppercase tracking-widest text-gold font-semibold block">

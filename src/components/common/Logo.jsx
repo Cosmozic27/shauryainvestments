@@ -2,8 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 /**
- * Premium SI Monogram Logo using CSS, metallic gold highlights, and serif typography.
- * Designed to look established, authoritative, and bespoke.
+ * Official Brand Identity Logo for Shaurya Investments.
+ * Features the authoritative metallic-gold eagle & growth arrow crest
+ * paired with classical serif typography.
  */
 export default function Logo({ 
   variant = 'default', 
@@ -11,7 +12,7 @@ export default function Logo({
   showTagline = true,
   className = '' 
 }) {
-  const isDark = variant === 'dark'; // dark background, light text
+  const isDark = variant === 'dark'; // dark background (e.g. footer)
   const isCompact = size === 'small';
   const isLarge = size === 'large';
 
@@ -21,9 +22,9 @@ export default function Logo({
       className={`group inline-flex items-center gap-3.5 select-none focus:outline-none focus-visible:ring-1 focus-visible:ring-gold ${className}`}
       aria-label="Shaurya Investments - Home"
     >
-      {/* Monogram Crest Container */}
+      {/* Official Metallic Gold Emblem Container */}
       <div 
-        className={`relative flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-[1.02] ${
+        className={`relative flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-[1.03] ${
           isCompact 
             ? 'w-9 h-9' 
             : isLarge 
@@ -31,12 +32,12 @@ export default function Logo({
             : 'w-11 h-11'
         }`}
       >
-        {/* Outer Shadow & Background */}
+        {/* Outer Shadow & Deep Navy Frame */}
         <div 
-          className={`absolute inset-0 rounded transition-all duration-300 ${
+          className={`absolute inset-0 rounded-[3px] transition-all duration-300 ${
             isDark 
               ? 'bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 border border-gold/40 group-hover:border-gold shadow-md' 
-              : 'bg-gradient-to-br from-navy to-navy-900 border border-gold/50 group-hover:border-gold shadow-sm'
+              : 'bg-gradient-to-br from-navy to-navy-950 border border-gold/50 group-hover:border-gold shadow-sm'
           }`}
         />
 
@@ -47,21 +48,18 @@ export default function Logo({
         <div className="absolute top-1 left-1 w-1 h-1 bg-gold/60 rounded-full" />
         <div className="absolute bottom-1 right-1 w-1 h-1 bg-gold/60 rounded-full" />
 
-        {/* Monogram Text */}
-        <span 
-          className={`relative font-serif font-bold tracking-widest text-gold text-center select-none ${
-            isCompact 
-              ? 'text-sm pl-0.5' 
-              : isLarge 
-              ? 'text-xl pl-0.5' 
-              : 'text-base pl-0.5'
-          }`}
-        >
-          SI
-        </span>
+        {/* Official Metallic Gold Crest Image */}
+        <div className="relative z-10 w-full h-full p-1.5 flex items-center justify-center">
+          <img 
+            src="/assets/logo/logo-symbol.png" 
+            alt="Shaurya Investments Crest" 
+            className="w-full h-full object-contain filter drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]"
+            draggable="false"
+          />
+        </div>
       </div>
 
-      {/* Brand Identity */}
+      {/* Brand Name & Tagline */}
       <div className="flex flex-col">
         <div className="flex items-baseline gap-1.5">
           <span 

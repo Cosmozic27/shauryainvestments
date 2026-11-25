@@ -8,7 +8,7 @@ export default function NotFoundPage() {
     <div className="min-h-[75vh] flex items-center justify-center bg-champagne py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full text-center space-y-6 bg-cream p-8 sm:p-10 rounded-sm border border-stone shadow-elevated">
         
-        {/* Monogram / 404 Crest */}
+        {/* 404 Status Emblem */}
         <div className="w-16 h-16 rounded bg-navy text-gold font-serif text-2xl font-bold flex items-center justify-center mx-auto border border-gold/40 shadow-soft">
           404
         </div>

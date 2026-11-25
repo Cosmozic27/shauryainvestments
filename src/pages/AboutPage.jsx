@@ -82,14 +82,23 @@ export default function AboutPage() {
                   {/* Genuine Founder Photograph Placeholder */}
                   <div className="relative h-80 sm:h-96 w-full rounded-sm bg-gradient-to-b from-sand via-stone to-navy-900 flex flex-col items-center justify-center text-center p-6 border border-stone/80 overflow-hidden group">
                     
-                    {/* Background subtle watermark monogram */}
-                    <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
-                      <span className="font-serif text-[180px] font-bold text-navy select-none">SI</span>
+                    {/* Background subtle watermark crest */}
+                    <div className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
+                      <img 
+                        src="/assets/logo/logo-symbol.png" 
+                        alt="" 
+                        aria-hidden="true" 
+                        className="w-64 h-64 object-contain filter brightness-50"
+                      />
                     </div>
 
-                    {/* Placeholder Icon & Badge */}
-                    <div className="relative z-10 w-20 h-20 rounded-full bg-navy border-2 border-gold flex items-center justify-center mb-4 shadow-elevated">
-                      <span className="font-serif text-2xl font-bold text-gold tracking-widest pl-1">SI</span>
+                    {/* Official Emblem Seal Badge */}
+                    <div className="relative z-10 w-20 h-20 rounded-full bg-navy-900 border-2 border-gold flex items-center justify-center mb-4 shadow-elevated p-3 overflow-hidden">
+                      <img 
+                        src="/assets/logo/logo-symbol.png" 
+                        alt="Shaurya Investments Official Emblem" 
+                        className="w-full h-full object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]"
+                      />
                     </div>
 
                     <div className="relative z-10 space-y-1">
